@@ -1,0 +1,50 @@
+import User from '../models/user'
+
+export const signup = async (req, res) => {
+    const { email, username, password } = req.body
+    try {
+        const existUser = await User.findOne({ email }).exec();
+        if(existUser){
+            return res.json({
+                message: "User existed"
+            })
+        }
+
+        const user = await new User({ email, username, password}).save()
+
+        return res.json({
+            user: {
+                username: user.username,
+                email: user.email,
+                _id: user._id
+            }
+        })
+    } catch (error) {
+      res.status(400).json({
+          msg: "Error"
+      })
+    }
+}
+
+export const login = async (req, res) => {
+    const { email, password } = req.body;
+    try {
+        const user = await User.findOne({ email }).exec()
+
+        if(!user){
+            return res.json({
+                message: "Do not find user"
+            })
+        }
+
+        if(!user.authenticate(password)){
+            return res.json({
+                message: "Password is incorrect"
+            })
+        }
+
+        const token = jwt.sign({ })
+    } catch (error) {
+        
+    }
+}

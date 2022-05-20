@@ -6,16 +6,31 @@ import { FaMinus } from "react-icons/fa";
 
 const MainDetail = () => {
   const [product, setProduct] = useState();
+  const [quantity, setQuantity] = useState(1)
   const { slug } = useParams();
 
   useEffect(() => {
     const getSlug = async () => {
       const { data } = await readProduct(slug);
-      // console.log('slug', data);
       setProduct(data);
     };
     getSlug();
   }, [slug]);
+
+  const incQuantity = () => {
+    console.log('submit');
+    setQuantity(quantity+1)
+  }
+
+  const desQuantity = () => {
+    console.log('first')
+    if(quantity<2){
+      setQuantity(1)
+    } else{
+      setQuantity(quantity-1)
+    }
+  }
+
   return (
     <div className="flex justify-between">
       <div className="image-product w-full">
@@ -43,15 +58,15 @@ const MainDetail = () => {
           <div className="flex flex-wrap items-end">
             <div className="mr-5 w-32">
               <div className="quantity h-[46px] flex border border-color-border rounded">
-                <button className="quantity-input__button flex items-center justify-center h-[46px] w-[46px]">
+                <button onClick={ () => desQuantity() } className="quantity-input__button flex items-center justify-center h-[46px] w-[46px]">
                   <FaMinus />
                 </button>
                 <input
                   type="text"
-                  value={1}
+                  value={ quantity }
                   className="w-10 text-center flex-grow shrink appearance-none"
                 />
-                <button className="quantity-input__button flex items-center justify-center h-[46px] w-[46px]">
+                <button onClick={ () => incQuantity()} className="quantity-input__button flex items-center justify-center h-[46px] w-[46px]">
                   <BsPlusLg />
                 </button>
               </div>

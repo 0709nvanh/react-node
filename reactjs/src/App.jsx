@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import logo from './logo.svg'
 import './App.css'
+
 import { Route, Routes } from 'react-router-dom'
 import LayoutWeb from './pages/layout/LayoutWeb'
 import LayoutAdmin from './pages/layout/LayoutAdmin'
@@ -14,6 +15,8 @@ import AddCate from './components/admin/category/AddCate'
 import Signup from './pages/pages/Signup'
 import Product from './pages/pages/Product'
 import DetailProduct from './pages/pages/DetailProduct'
+import Login from './pages/pages/Login'
+import CheckOut from './pages/pages/CheckOut'
 
 function App() {
 
@@ -22,8 +25,10 @@ function App() {
       <Route path="/" element={<LayoutWeb />}>
         <Route index element={<Home />}/>
         <Route path="sign-up" element={<Signup />}/>
+        <Route path="login" element={<Login />}/>
         <Route path="product" element={<Product />}/>
         <Route path=":slug/detail" element={<DetailProduct />}/>
+        <Route path="check-out" element={<CheckOut />}/>x
 
       </Route>
       

@@ -5,28 +5,30 @@ if(localStorage.getItem('cart')){
 }
 
 export const addToCart = (newProduct) => {
+    // console.log('new product', newProduct)
     const existProduct = cart.find(item => item.id === newProduct.id)
-    if(existProduct){
+    console.log('exist', existProduct)
+    if(!existProduct){
         cart.push(newProduct)
     } else{
-        existProduct.quantity += +newProduct.quantity
+        existProduct.quantityProduct += +newProduct.quantityProduct
     }
     localStorage.setItem('cart', JSON.stringify(cart))
 }
 
 export const increaseQuantity = (id) => {
-    cart.find(item => item.id === id).quantity++
+    cart.find(item => item.id === id).quantityProduct++
     localStorage.setItem('cart', JSON.stringify(cart))
 }
 
 export const decreaseQuantity = (id) => {
     const CurrentProduct = cart.find(item => item.id === id);
-    CurrentProduct.quantity--;
-    if(CurrentProduct.quantity<1){
+    CurrentProduct.quantityProduct--;
+    if(CurrentProduct.quantityProduct<1){
         if(window.confirm("Bạn muốn xóa hay không?")){
             cart = cart.filter(item => item.id != id);
         } else {
-            CurrentProduct.quantity = 1;
+            CurrentProduct.quantityProduct = 1;
         }
     }
     localStorage.setItem('cart', JSON.stringify(cart));

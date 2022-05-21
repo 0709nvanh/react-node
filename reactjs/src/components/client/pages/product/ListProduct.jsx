@@ -45,7 +45,7 @@ const ListProduct = () => {
         <div className="list-product">
             <div className='grid grid-cols-4 gap-4 py-[40px]'>
             {products?.map((item, index) => (
-                    <div class="relative overflow-hidden'">
+                    <div class="relative overflow-hidden">
                         <div key={index} className="">
                             <img className='w-full h-full hover:scale-105 transition-all duration-300 ease-linear' src="https://cdn.shopify.com/s/files/1/0595/7291/2305/products/52_540x.jpg?v=1638505970" alt="" />
                             <div className='text-left py-6'>

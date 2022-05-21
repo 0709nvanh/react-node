@@ -5,7 +5,7 @@ import NavBar from '../../components/client/pages/NavBar'
 
 const LayoutWeb = () => {
   return (
-      <div>
+      <div className='max-h-max	'>
           <header><NavBar /></header>
           <main><Outlet /></main>
           <footer><Footer /></footer>

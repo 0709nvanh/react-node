@@ -30,13 +30,10 @@ const NavBar = () => {
             </div>
             <div className="menu-right flex items-center font-roboto">
                 <div className="px-3">
-                    <Link className="px-2 mx-[10px] hover:text-gray-600" to="sign-in">Sign in</Link>
+                    <Link className="px-2 mx-[10px] hover:text-gray-600" to="login">Log in</Link>
                     <Link className="mx-[10px] hover:text-gray-600" to="sign-up">Sign up</Link>
                 </div>
                 <div className="flex ">
-                    <div className="items-center pr-2 mx-[10px]">
-                        <Link to=""><BsFillHeartFill /></Link>
-                    </div>
                     <div className="items-center">
                         <Link to=""><BsFillBagFill /></Link>
                     </div>

@@ -1,7 +1,7 @@
 import React from "react";
 import "../../components/client/css/signup.css";
 import { useForm } from "react-hook-form";
-import { login } from "../../apis/user";
+import { login } from "../../apis/auth";
 import { useNavigate } from "react-router-dom";
 
 const Login = () => {
@@ -17,7 +17,8 @@ const Login = () => {
     login(data).then((res) => {
       if (res) {
         // navigate("/");
-        console.log('res', res);
+        // console.log('res', res);
+        localStorage.setItem('auth', JSON.stringify(res.data))
       }
     });
   };

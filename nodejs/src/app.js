@@ -6,6 +6,7 @@ import mongoose from 'mongoose'
 import productRoute from './routes/product'
 import categoryRoute from './routes/category'
 import userRoute from './routes/user'
+import cartRouter from './routes/cart'
 
 const app = express()
 
@@ -23,6 +24,7 @@ mongoose.connect("mongodb://localhost:27017/zzz")
 app.use("/api", productRoute)
 app.use("/api", categoryRoute)
 app.use("/api", userRoute)
+app.use("/api", cartRouter)
 
 //port
 const PORT = 3001;

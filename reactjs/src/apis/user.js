@@ -1,11 +1,16 @@
 import instance from "./instance";
 
-export const signup = (data) => {
-    const url = '/signup';
-    return instance.post(url, data)
+export const getUsers = () => {
+    const url = '/users'
+    return instance.get(url)
 }
 
-export const login = (data) => {
-    const url = '/login';
-    return instance.post(url, data)
+export const readUser = (id) => {
+    const url = `/user/${id}`
+    return instance.get(url)
+}
+
+export const removeUser = (id) => {
+    const url = `/user/${id}`
+    return instance.delete(url)
 }

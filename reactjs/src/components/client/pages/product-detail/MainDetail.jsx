@@ -38,7 +38,6 @@ const MainDetail = () => {
     const cart = {
       ...product, quantityProduct
     }
-    // console.log('cart', cart)
     addToCart(cart)
     toast.success('🦄 Wow so easy!', {
       position: "top-right",

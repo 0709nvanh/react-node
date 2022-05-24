@@ -24,43 +24,16 @@ const userSchema = mongoose.Schema({
     }
 }, { timestamps: true })
 
-
-// userSchema.methods = {
-//     //method
-//     authenticate(password){
-//         return this.password == this.encrytPassword(password);
-//     },
-//     //method
-//     encrytPassword(password){
-//         if(!password) return;
-//         try {
-//             return createHmac('sha256', this.salt).update(password).digest('hex')
-//         } catch (error) {
-//             console.log(error)
-//         }
-//     }
-// }
-
-//middleware
-// userSchema.pre("save", async function save(next){
-//     try {
-//         this.salt = uuidv4();
-//         console.log('salt', salt)
-//         this.password = this.encrytPassword(this.password)
-//         next()
-//     } catch (error) {
-//         return next(error)
-//     }
-// })
-
 userSchema.methods = {
     authenticate(password){
+        // console.log('password', this.encrytPassword(password))
         return this.password == this.encrytPassword(password);
     },
     encrytPassword(password){ 
+        // console.log(p)
         if(!password) return;
         try {
-            console.log('password da ma hoa', createHmac('sha256', this.salt).update(password).digest('hex'))
+            // console.log('password da ma hoa', createHmac('sha256', this.salt).update(password).digest('hex'))
             return createHmac('sha256', this.salt).update(password).digest('hex');
         } catch (error) {
             console.log(error);
@@ -69,8 +42,12 @@ userSchema.methods = {
 }
 
 userSchema.pre("save", function(next){
+    try {
         this.salt = uuidv4();
         this.password = this.encrytPassword(this.password);
         next()
+    } catch (error) {
+        console.log(error)
+    }
 })
 export default mongoose.model("User", userSchema)

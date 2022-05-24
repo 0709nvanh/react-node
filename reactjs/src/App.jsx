@@ -17,6 +17,8 @@ import Product from './pages/pages/Product'
 import DetailProduct from './pages/pages/DetailProduct'
 import Login from './pages/pages/Login'
 import CheckOut from './pages/pages/CheckOut'
+import ListCart from './components/admin/cart/ListCart'
+import DetailCart from './components/admin/cart/DetailCart'
 
 function App() {
 
@@ -41,6 +43,9 @@ function App() {
 
         <Route path="category" element={<ListCate />}/>
         <Route path="category/add" element={<AddCate />}/>
+
+        <Route path="cart" element={<ListCart />}/>
+        <Route path=":id/detailBill" element={<DetailCart />}/>
       </Route>
     </Routes>
   )

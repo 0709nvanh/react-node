@@ -7,6 +7,12 @@ import { useForm } from 'react-hook-form'
 const InfoCheckOut = () => {
     const [product, setProduct] = useState([])
     const { register, handleSubmit, formState: { errors } } = useForm()
+    const [user, setUsers] = useState()
+
+    useEffect(() => {
+        const auth = localStorage.getItem('auth')
+        setUsers(JSON.parse(auth).user)
+    }, [])
 
     const onAddCartProduct = () => {
 
@@ -26,13 +32,18 @@ const InfoCheckOut = () => {
             </div>
             <div>
                 <form action="" onSubmit={handleSubmit(onAddCartProduct)}>
-                    <div className='flex justify-between items-baseline flex-wrap pt-7'>
-                        <h1>Contact information</h1>
-                        <span className='text-[14px]'>Already have an account?<Link to="/" className='pl-1 text-blue-600 hover:text-blue-800 transition-all duration-300 ease-linear'>Log in</Link></span>
-                    </div>
-                    <div className="email py-3">
-                        <input type="email" { ...register('email', { required: true})}  placeholder='Email' className='w-full outline-none border-[1px] p-2 rounded-md' />
-                    </div>
+                    {
+                        user?.username ? "" : 
+                        <div>
+                            <div className='flex justify-between items-baseline flex-wrap pt-7'>
+                                <h1>Contact information</h1>
+                                <span className='text-[14px]'>Already have an account?<Link to="/" className='pl-1 text-blue-600 hover:text-blue-800 transition-all duration-300 ease-linear'>Log in</Link></span>
+                            </div>
+                            <div className="email py-3">
+                                <input type="email" { ...register('email', { required: true})}  placeholder='Email' className='w-full outline-none border-[1px] p-2 rounded-md' />
+                            </div>
+                        </div>
+                    }
                     <div className='shipping py-3'>
                         <h1>Shipping Address</h1>
                         <div className="name flex justify-between py-2">

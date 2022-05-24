@@ -19,9 +19,7 @@ export const listCate = async (req, res) => {
         const categories = await Category.find().exec();
         res.json(categories)
     } catch (error) {
-        res.status.json({
-            message: "Error"
-        })
+        console.log(error)
     }
 }
 

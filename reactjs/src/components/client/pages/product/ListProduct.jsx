@@ -21,9 +21,9 @@ const ListProduct = () => {
         <div className="flex items-center justify-between">
             <div className="sort">
                 <select>
-                    <option value="">Name A-Z</option>
-                    <option value="">Name Z-A</option>
-                    <option value="">Name A-Z</option>
+                    <option value="1">Name A-Z</option>
+                    <option value="2">Name Z-A</option>
+                    <option value="3">Name A-Z</option>
                 </select>
             </div>
             <div className='flex-1'></div>

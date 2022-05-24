@@ -1,7 +1,7 @@
 import React from "react";
 import "../../components/client/css/signup.css";
 import { useForm } from "react-hook-form";
-import { signup } from "../../apis/user";
+import { signup } from "../../apis/auth";
 import { useNavigate } from "react-router-dom";
 
 const Signup = () => {

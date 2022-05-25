@@ -16,9 +16,13 @@ const Login = () => {
     // console.log('data', data);
     login(data).then((res) => {
       if (res) {
-        // navigate("/");
-        // console.log('res', res);
+        // console.log(res.data);
         localStorage.setItem('auth', JSON.stringify(res.data))
+        if(res.data.user.role === 1 ){
+          navigate('/admin')
+        } else {
+          navigate('/')
+        }
       }
     });
   };

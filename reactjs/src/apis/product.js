@@ -36,6 +36,15 @@ export const getRelatedCate = (cateId) => {
 }
 
 export const sortByPrice = (sortByPrice) => {
-    const url = `/product?sortByPrice=${sortByPrice}`
+    const url = `/products?sortByPrice=${sortByPrice}`
+    return instance.get(url)
+}
+export const sortByName = (sortByName) => {
+    const url = `/products?${sortByName}`
+    return instance.get(url)
+}
+
+export const searchProduct = (search) => {
+    const url = `/product?search=${search}`
     return instance.get(url)
 }

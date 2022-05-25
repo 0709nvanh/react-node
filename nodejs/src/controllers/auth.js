@@ -53,9 +53,28 @@ export const login = async (req, res) => {
             user: {
                 _id: user._id,
                 username: user.username,
-                email: user.email
+                email: user.email,
+                role: user.role
             }
         })
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+export const getUsers = async (req, res) => {
+    try {
+        const user = await User.find().exec()
+        res.json(user)
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+export const removeUser = async (req, res) => {
+    try {
+        const user = await User.findByIdAndDelete({ _id: req.params.id}).exec()
+        res.json(user)
     } catch (error) {
         console.log(error)
     }

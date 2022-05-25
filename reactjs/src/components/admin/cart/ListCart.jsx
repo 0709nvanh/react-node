@@ -50,17 +50,17 @@ const ListCart = () => {
                                               <td className="text-center py-[5px]">
                                               {
                                                     (() => {
-                                                        if (item.status === 0) {
+                                                        if (item.status === 1) {
                                                             return (
-                                                                <select value="Tạo đơn"  className=" form-select appearance-none block w-full px-3  py-1.5 text-base  font-bold text-white  bg-black bg-clip-padding bg-no-repeat  border border-solid border-gray-300  rounded  transition ease-in-out  m-0   focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none">
-                                                                    <option value="0" className="">Tạo đơn</option>
-                                                                    <option value="1" className="">Đang Vận Chuyển</option>
+                                                                <select value="Tạo đơn"  className=" form-select appearance-none block w-full px-3  py-1.5 text-base  font-bold text-black  bg-clip-padding bg-no-repeat  border border-solid border-gray-300  rounded  transition ease-in-out  m-0   focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none">
+                                                                    <option value="0">Tạo đơn</option>
+                                                                    <option value="1">Đang Vận Chuyển</option>
                                                                     <option value="2">Giao Thành Công</option>
                                                                     <option value="3">Hủy Đơn Hàng</option>
                                                                 </select>
                                                             )
                                                         }
-                                                        if (item.status === 1) {
+                                                        if (item.status === 2) {
                                                             return (
                                                                 <select value="Đang Vận Chuyển" className="form-select appearance-none block w-full px-3  py-1.5 text-base  font-bold text-white  bg-green-300 bg-clip-padding bg-no-repeat  border border-solid border-gray-300  rounded  transition ease-in-out  m-0   focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none">
                                                                     <option value="1" >Đang Vận Chuyển</option>
@@ -70,21 +70,21 @@ const ListCart = () => {
                                                                 </select>
                                                             )
                                                         }
-                                                        if (item.status === 2) {
+                                                        if (item.status === 3) {
                                                             return (
                                                                 <select className="  form-select appearance-none block w-full px-3  py-1.5 text-base  font-bold text-white  bg-green-500 bg-clip-padding bg-no-repeat  border border-solid border-gray-300  rounded  transition ease-in-out  m-0   focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none">
                                                                     <option value="2">Giao Thành Công</option>
                                                                 </select>
                                                             )
                                                         }
-                                                        if (item.status === 3) {
+                                                        if (item.status === 4) {
                                                             return (
                                                                 <select className="  form-select appearance-none block w-full px-3  py-1.5 text-base  font-bold text-white  bg-red-500 bg-clip-padding bg-no-repeat  border border-solid border-gray-300  rounded  transition ease-in-out  m-0   focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none">
                                                                     <option value="3">Hủy Đơn Hàng</option>
                                                                 </select>
                                                             )
                                                         }
-                                                        if (item.status == 4) {
+                                                        if (item.status == 5) {
                                                             return (
                                                                 <select className="  form-select appearance-none block w-full px-3  py-1.5 text-base  font-bold text-white  bg-red-500 bg-clip-padding bg-no-repeat  border border-solid border-gray-300  rounded  transition ease-in-out  m-0   focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none">
                                                                     <option value="4">Đơn Hàng Bị Hủy</option>

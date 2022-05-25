@@ -26,9 +26,9 @@ const Product = () => {
                 </div>
             </div>
         </div>
-        <div className='px-9 flex'>
-            <LeftProduct />
-            <div className='flex-1 w-full'>
+        <div>
+            {/* <LeftProduct /> */}
+            <div >
                 <ListProduct />
             </div>
         </div>

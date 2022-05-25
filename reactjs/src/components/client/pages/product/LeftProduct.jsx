@@ -10,7 +10,7 @@ const LeftProduct = () => {
     useEffect(() => {
         const getCate = async () => {
             const { data } = await getCategories()
-            console.log('data', data);
+            // console.log('data', data);
             setCategories(data)
         }
         getCate()

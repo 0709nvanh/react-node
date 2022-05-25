@@ -15,7 +15,7 @@ export const create = async (req, res) => {
 
 
 export const list = async (req, res) => {
-    const { limit, search, sortByPrice, cateId, time } = req.query
+    const { limit, search, sortByPrice, sortByName, cateId, time } = req.query
     if (limit) {
         try {
             const products = await Product.find().limit(limit).exec();
@@ -52,7 +52,17 @@ export const list = async (req, res) => {
                 message: "Error"
             })
         }
-    } else if(search){
+    } else if(sortByName){
+        try {
+            const products = await Product.find().sort({ name: sortByName}).populate('category').exec();
+            res.json(products)
+        } catch (error) {
+            res.status(400).json({
+                message: "Error"
+            })
+        }
+    }
+    else if(search){
         try {
             const products = await Product.find({ "$text": {"$search": search}}).populate('category').exec();
             res.json(products)

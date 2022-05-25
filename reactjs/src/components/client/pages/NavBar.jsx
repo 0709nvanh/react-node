@@ -1,18 +1,25 @@
 import React from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { BsFillBagFill } from "react-icons/bs";
 import { useState } from "react";
 import { useEffect } from "react";
 
 
 const NavBar = () => {
-    const [user, setUser] = useState()
+    const [user, setUser] = useState({})
+    const navigate = useNavigate()
     
     useEffect(() => {
         const auth = localStorage.getItem('auth')
-        setUser(JSON.parse(auth).user)
-
+        if(auth !== ""){
+            setUser(JSON.parse(auth)?.user)
+        }
     }, [])
+
+    const onLogOut = () => {
+        localStorage.removeItem('auth')
+        navigate('/')
+    }
   return (
     <div className="w-full bg-[#ccc]">
         <div className="flex justify-between mx-auto px-[90px] items-center">
@@ -41,8 +48,8 @@ const NavBar = () => {
                 {
                     user?.username ? 
                     <div className="px-3">
-                        <Link className="px-2 mx-[10px] hover:text-gray-600" to="login">{user.username}</Link>
-                        <Link className="mx-[10px] hover:text-gray-600" to="sign-up">Log out</Link>
+                        <Link className="px-2 mx-[10px] hover:text-gray-600" to="login">{user?.username}</Link>
+                        <button onClick={onLogOut} className="mx-[10px] hover:text-gray-600">Log out</button>
                     </div> : 
                     <div className="px-3">
                         <Link className="px-2 mx-[10px] hover:text-gray-600" to="login">Log in</Link>

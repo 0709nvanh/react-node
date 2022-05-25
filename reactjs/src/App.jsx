@@ -19,6 +19,7 @@ import Login from './pages/pages/Login'
 import CheckOut from './pages/pages/CheckOut'
 import ListCart from './components/admin/cart/ListCart'
 import DetailCart from './components/admin/cart/DetailCart'
+import ListUser from './components/admin/user/ListUser'
 
 function App() {
 
@@ -46,6 +47,8 @@ function App() {
 
         <Route path="cart" element={<ListCart />}/>
         <Route path=":id/detailBill" element={<DetailCart />}/>
+
+        <Route path="user-info" element={<ListUser />}/>
       </Route>
     </Routes>
   )
